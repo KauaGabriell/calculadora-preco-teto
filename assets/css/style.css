@@ -1,0 +1,20 @@
+/*Reset CSS*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**Cores*/
+
+:root{
+    --main-color: #212B50;
+    --secondary-color: #15853F;
+}
+
+.main-container{
+    max-width: 70.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
+}
