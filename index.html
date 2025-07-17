@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body>
 
     <div class="w-screen min-h-screen flex flex-col items-center justify-around">
 
@@ -20,8 +20,16 @@
                 <p class="text-md text-gray-600">Calcule preços teto projetivos e históricos para suas ações</p>
             </div>
         </header>
+        <nav class="main-container">
+            <div class="flex p-1 gap-1 bg-(--input-radio-bg) rounded-sm">
+                <input id="secao-projetivo" type="radio" class="appearance-none">
+                <label for="secao-projetivo" name="tipo-calculo" value="projetivo" class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Projetivo</label>
 
-        <main class="main-container">
+                <input id="secao-historico" type="radio" class="appearance-none">
+                <label for="secao-historico" name="tipo-calculo" value="bazin" class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Histórico Bazin</label>
+            </div>
+        </nav>
+        <main class="">
             
         </main>
 
