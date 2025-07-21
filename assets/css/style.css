@@ -18,6 +18,10 @@
     height: 3.rem;
 }
 
+.hidden{
+    display: none;
+}
+
 /*Form Styles*/
 .form{
     display: grid;
