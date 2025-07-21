@@ -17,3 +17,26 @@
     width: 3.5rem;
     height: 3.rem;
 }
+
+/*Form Styles*/
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.input{
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid gray;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.label{
+    font-weight: 500;
+    color: var(--main-color);
+}
+

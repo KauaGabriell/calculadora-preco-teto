@@ -10,35 +10,86 @@
 </head>
 
 <body>
-
-    <div class="w-screen min-h-screen flex flex-col items-center justify-around">
-
+    <div class="w-screen min-h-screen flex flex-col items-center justify-around bg-[#F8F9FA]">
         <header class="text-center">
             <div class="flex flex-col items-center gap-2 mt-8">
-                <img class="w-16 h-16" src="assets/img/grafico-para-cima.png" alt="Ícone de gráfico subindo">
-                <h1 class="text-3xl font-bold">Análise de Ações</h1>
-                <p class="text-md text-gray-600">Calcule preços teto projetivos e históricos para suas ações</p>
+                <img class="w-16 h-16" src="assets/img/grafico-para-cima.png" alt="Ícone de gráfico subindo" />
+                <h1 class="text-3xl font-bold text-(--main-color)">
+                    Análise de Ações
+                </h1>
+                <p class="text-md text-gray-600">
+                    Calcule preços teto projetivos e históricos para suas ações
+                </p>
             </div>
         </header>
+        <!--Navegador(Alternador de Calculadoras)-->
         <nav class="main-container">
             <div class="flex p-1 gap-1 bg-(--input-radio-bg) rounded-sm">
-                <input id="secao-projetivo" type="radio" class="appearance-none">
-                <label for="secao-projetivo" name="tipo-calculo" value="projetivo" class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Projetivo</label>
+                <input id="secao-projetivo" type="radio" class="appearance-none" />
+                <label for="secao-projetivo" name="tipo-calculo" value="projetivo"
+                    class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Projetivo</label>
 
-                <input id="secao-historico" type="radio" class="appearance-none">
-                <label for="secao-historico" name="tipo-calculo" value="bazin" class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Histórico Bazin</label>
+                <input id="secao-historico" type="radio" class="appearance-none" />
+                <label for="secao-historico" name="tipo-calculo" value="bazin"
+                    class="w-full text-center bg-white rounded-sm cursor-pointer">Preço Teto Histórico Bazin</label>
             </div>
         </nav>
-        <main class="">
-            
+
+        <!--Main(Calculadoras)-->
+        <main class="main-container">
+            <div class="main-container bg-(--main-color) rounded-t-md text-white">
+                <h2 class="flex gap-3 text-2xl font-bold">
+                    <img class="" src="assets/img/icone-para-cima.png" alt="Ícone de gráfico subindo" />
+                    Calculadora de Preço Teto Projetivo
+                </h2>
+                <p>Baseado em projeções futuras da empresa</p>
+            </div>
+
+            <!--Formulário para cálculo-->
+            <form id="form-projetivo" class="form bg-white shadow-md">
+                <div>
+                    <label for="ticker-projetivo" class="label">Ticker da Ação</label>
+                    <input type="text" class="input" placeholder="Ex: PETR4" required id="ticker-projetivo" />
+                </div>
+                <div>
+                    <label for="cotacao-projetivo" class="label">Cotação Atual da Ação</label>
+                    <input type="number" class="input" placeholder="Ex: 25.80" required id="cotacao-projetivo" />
+                </div>
+
+                <div>
+                    <label for="lucro-projetivo" class="label">Lucro Líquido Projetivo (R$)</label>
+                    <input type="number" class="input" placeholder="Ex: 5.000.000.000" required id="lucro-projetivo" />
+                </div>
+                <div>
+                    <label for="payout-projetivo" class="label">Payout (R$)</label>
+                    <input type="number" class="input" placeholder="Ex: 80" required id="payout-projetivo" />
+                </div>
+                <div>
+                    <label for="total-acoes-projetivo" class="label">Quantidade Total de Ações</label>
+                    <input type="number" class="input" placeholder="Ex: 1.000.000.000" required
+                        id="total-acoes-projetivo" />
+                </div>
+                <div>
+                    <label for="yield-projetivo" class="label">Yield Desejado (%)</label>
+                    <input type="number" class="input" placeholder="Ex: 6" required id="yield-projetivo" />
+                </div>
+                <div class="flex items-end col-span-2 gap-4">
+                    <button id="submit-button" type="submit"
+                        class="flex justify-center items-center w-full gap-4 h-12 mt-4 text-white font-semibold bg-(--main-color) rounded-sm cursor-pointer ">
+                        <img class="w-6" src="assets/img/calculator.png" alt="icone-de-calculadora">
+                        Calcular e Salvar/Atualizar a Lista
+                    </button>
+                    <button id="cleanner-button" class="border border-(--main-color) p-2 rounded-sm h-12 text-(--main-color)">
+                        Limpar
+                    </button>
+                </div>
+            </form>
         </main>
 
         <footer class="text-center text-sm text-gray-500 mt-8">
             <p></p>
         </footer>
-
     </div>
-
 </body>
 
 </html>
