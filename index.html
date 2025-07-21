@@ -36,7 +36,7 @@
         </nav>
 
         <!--Main(Calculadoras)-->
-        <main class="main-container">
+        <main class="main-container flex flex-col gap-12">
             <section id="secao-projetivo">
                 <div class="main-container bg-(--main-color) rounded-t-md text-white">
                     <h2 class="flex gap-3 text-2xl font-bold">
@@ -86,7 +86,7 @@
                     </div>
                 </form>
             </section>
-            
+
             <section id="secao-historico" class="hidden">
                 <div class="main-container bg-(--main-color) rounded-t-md text-white">
                     <h2 class="flex gap-3 text-2xl font-bold">
@@ -125,6 +125,48 @@
                         </button>
                     </div>
                 </form>
+            </section>
+
+            <section id="dashboard">
+                <div class="main-container bg-green-700 rounded-t-md text-white">
+                    <h2 class="flex gap-3 text-2xl font-bold">
+                        <img class="" src="assets/img/database.png" alt="Ícone de gráfico subindo" />
+                        Dashboard de Ações Salvas
+                    </h2>
+                    <p>0 Cálculos Salvos</p>
+                </div>
+                <div class="shadow-md w-full p-4">
+                    <table class="w-full table-auto text-center">
+                        <tr>
+                            <th>Ticker da Ação</th>
+                            <th>Tipo</th>
+                            <th>Cotação</th>
+                            <th>Preço Teto</th>
+                            <th>Margem de Segurança</th>
+                            <th>DPA</th>
+                            <th>LPA</th>
+                            <th>Yield Projetivo</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                        <tr>
+                            <td>Petr4</td>
+                            <td>Histórico BAZIN</td>
+                            <td>teste</td>
+                            <td>39,80</td>
+                            <td>34%</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>6%</td>
+                            <td>21/05/2025</td>
+                            <td class="">
+                                <span class="trash-icon">
+                                    <img class="w-6 items-center" src="assets/img/trash.png" alt="">
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </section>
         </main>
 
