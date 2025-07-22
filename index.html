@@ -25,8 +25,7 @@
         <!--Navegador(Alternador de Calculadoras)-->
         <nav class="nav-container">
             <div class="flex p-1 gap-2 bg-(--input-radio-bg) rounded-sm">
-                <input id="radio-projetivo" type="radio" class="sr-only" name="tipo-calculo"
-                    value="projetivo" />
+                <input id="radio-projetivo" type="radio" class="sr-only" name="tipo-calculo" value="projetivo" checked/>
                 <label for="radio-projetivo"
                     class="flex justify-center items-center w-full text-center rounded-sm shadow-sm cursor-pointer h-8 font-semibold text-(--main-color)">Preço
                     Teto Projetivo</label>
@@ -139,36 +138,26 @@
                     <p>0 Cálculos Salvos</p>
                 </div>
                 <div class="shadow-md w-full p-4">
-                    <table class="w-full table-auto text-center">
-                        <tr>
-                            <th>Ticker da Ação</th>
-                            <th>Tipo</th>
-                            <th>Cotação</th>
-                            <th>Preço Teto</th>
-                            <th>Margem de Segurança</th>
-                            <th>DPA</th>
-                            <th>LPA</th>
-                            <th>Yield Projetivo</th>
-                            <th>Data</th>
-                            <th>Ações</th>
-                        </tr>
-                        <tr>
-                            <td>Petr4</td>
-                            <td>Histórico BAZIN</td>
-                            <td>teste</td>
-                            <td>39,80</td>
-                            <td>34%</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>6%</td>
-                            <td>21/05/2025</td>
-                            <td class="">
-                                <span class="trash-icon">
-                                    <img class="w-6 items-center" src="assets/img/trash.png" alt="">
-                                </span>
-                            </td>
-                        </tr>
+                    <table id="tabela-acoes" class="w-full table-auto text-center">
+                        <thead>
+                            <tr class="border-b">
+                                <th>Ticker da Ação</th>
+                                <th>Tipo</th>
+                                <th>Cotação</th>
+                                <th>Preço Teto</th>
+                                <th>Margem de Segurança</th>
+                                <th>DPA</th>
+                                <th>LPA</th>
+                                <th>Yield Projetivo</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historico-tabela-corpo">
+
+                        </tbody>
                     </table>
+                    <p id="historico-vazio" class="text-center text-gray-500 mt-4">Nenhum cálculo realizado ainda.</p>
                 </div>
             </section>
         </main>
