@@ -13,6 +13,11 @@
     padding: 1.5rem;
 }
 
+.nav-container{
+    min-width: 70.75rem;
+    margin-top: 1.5rem;
+}
+
 .icon{
     width: 3.5rem;
     height: 3.rem;
@@ -49,6 +54,7 @@ th{
     font-weight: 500;
     border-bottom: 1px solid rgba(154, 153, 153, 0.521);
     margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
 }
 
 tr{
