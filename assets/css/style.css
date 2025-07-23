@@ -52,13 +52,22 @@ label[for^="radio-"] {
     box-sizing: border-box;
 }
 
+.form > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .input{
     width: 100%;
     height: 2.7rem;
     border: 1.5px solid #bdbdbd;
     border-radius: 0.5rem;
     padding: 0.7rem 1rem;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.1rem;
     font-size: 1.05rem;
     box-sizing: border-box;
     background: #f8fafc;
@@ -78,13 +87,20 @@ label[for^="radio-"] {
 }
 
 /* Botões responsivos e bonitos */
+.form .flex.items-end.col-span-2.gap-4 {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0;
+}
 button[type="submit"],
 button[id^="cleanner-button"] {
     min-width: 120px;
     padding: 0.8rem 1.2rem;
     font-size: 1rem;
     border-radius: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0;
     transition: background 0.2s, color 0.2s;
 }
 
@@ -110,6 +126,7 @@ button[id^="cleanner-button"]:hover {
     .form .flex.items-end.col-span-2.gap-4 {
         flex-direction: column;
         gap: 0.5rem;
+        margin-top: 0.2rem;
     }
     button[type="submit"],
     button[id^="cleanner-button"] {
@@ -177,6 +194,11 @@ td {
         gap: 1rem;
         padding: 1rem;
     }
+    .form > div {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 @media (max-width: 600px) {
@@ -192,10 +214,17 @@ td {
         padding: 0.5rem;
         border-radius: 0.5rem;
     }
+    .form > div {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
     .input {
         height: 2.3rem;
         font-size: 0.97rem;
         padding: 0.6rem 0.8rem;
+        margin-top: 0.2rem;
+        margin-bottom: 0.1rem;
     }
     th, td {
         font-size: 0.85rem;
