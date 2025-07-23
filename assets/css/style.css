@@ -28,10 +28,16 @@
 }
 
 /*Estilos do controle de navegação entre calculadoras*/
-.radioBG{
+
+input[name="tipo-calculo"]:checked + label {
     background-color: white;
+    color: #005A3A; /* Opcional: Garante que o texto fique legível */
 }
 
+/* Define o estilo padrão para os labels dos rádios */
+label[for^="radio-"] {
+    transition: background-color 0.2s ease-in-out;
+}
 
 
 /*Form Styles*/
