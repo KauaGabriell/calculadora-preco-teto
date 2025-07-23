@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     //Formulários
     const formProjetivo = document.querySelector("#form-projetivo");
     const formBazin = document.querySelector("#form-bazin");
+    const cotacao = parseFloat(document.querySelector('#cotacao-projetivo').value);
+    const ticker = document.querySelector('#ticker-projetivo').value;
+
+    //Elementos da tabela
+    const tbody = document.querySelector('#historico-tabela-corpo');
+    const paragrafoVazio = document.querySelector('#historico-vazio');
 
     //Elementos do Preço Teto Projetivo
     const quantidadePapeis = document.querySelector("#total-acoes-projetivo");
@@ -55,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //Função para construir as linhas da tabela
     function adicionarLinhaTabela(dados) {
         const linha = document.createElement('tr');
-        const tbody = document.querySelector('#historico-tabela-corpo');
         linha.classList.add("border-b", "text-center");
 
         linha.innerHTML = `
@@ -85,8 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const papeis = parseFloat(quantidadePapeis.value);
         const payout = parseFloat(payoutInput.value) / 100;
         const yieldProjetivo = parseFloat(yieldProjetivoInput.value) / 100;
-        const cotacao = parseFloat(document.querySelector('#cotacao-projetivo').value);
-        const ticker = document.querySelector('#ticker-projetivo').value;
 
         const resultadoCalculo = calcularPrecoTetoProjetivo(
             lucro,
@@ -94,8 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
             payout,
             yieldProjetivo
         );
-
         const margemSeguranca = (resultadoCalculo.precoTeto / cotacao) - 1;
+
 
         if(resultadoCalculo && !isNaN(resultadoCalculo.precoTeto) && isFinite(resultadoCalculo.precoTeto)){
             const dadosParaHistorico = {
@@ -121,13 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     style: "currency",
                     currency: "BRL",
                 }),
-                yield: (yieldProjetivo * 100).toLocaleString('pt-BR', {
+                yieldFormatado: (yieldProjetivo * 100).toLocaleString('pt-BR', {
                     style: "percent",
                     minimumFractionDigits: 2,
                 }),
                 data: new Date().toLocaleDateString('pt-BR')
             };
             adicionarLinhaTabela(dadosParaHistorico);
+            //paragrafoVazio.classList.add('hidden');
+
         } else {
             alert("Não foi possível calcular. Verifique se os campos foram preenchidos corretamente!!");
         }
