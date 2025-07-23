@@ -46,27 +46,79 @@ label[for^="radio-"] {
 .form{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
 }
 
 .input{
     width: 100%;
-    height: 2.5rem;
-    border: 1px solid gray;
-    border-radius: 0.3rem;
-    padding: 0.5rem;
+    height: 2.7rem;
+    border: 1.5px solid #bdbdbd;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1rem;
     margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
     box-sizing: border-box;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+.input:focus {
+    border: 1.5px solid var(--main-color);
+    outline: none;
+    background: #fff;
 }
 
 .label{
-    font-weight: 500;
+    font-weight: 600;
     color: var(--main-color);
+    margin-bottom: 0.2rem;
+    display: block;
 }
 
-/*Estilos da Tabela*/
+/* Botões responsivos e bonitos */
+button[type="submit"],
+button[id^="cleanner-button"] {
+    min-width: 120px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin-right: 0.5rem;
+}
+
+button[id^="cleanner-button"] {
+    border: 1.5px solid var(--main-color);
+    color: var(--main-color);
+    background: #fff;
+    width: 100%;
+    margin-left: 0.5rem;
+}
+button[id^="cleanner-button"]:hover {
+    background: var(--main-color);
+    color: #fff;
+}
+
+/* Ajuste de espaçamento entre botões em mobile */
+@media (max-width: 600px) {
+    .form .flex.items-end.col-span-2.gap-4 {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    button[type="submit"],
+    button[id^="cleanner-button"] {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Estilos da Tabela*/
 th{
     color: rgb(95, 95, 95);
     font-weight: 500;
@@ -122,8 +174,8 @@ td {
     }
     .form {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
-        padding: 0.5rem;
+        gap: 1rem;
+        padding: 1rem;
     }
 }
 
@@ -132,16 +184,18 @@ td {
         padding: 0.5rem;
     }
     header .text-3xl {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .form {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 0.25rem;
+        gap: 0.7rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
     }
     .input {
-        height: 2.2rem;
-        font-size: 0.95rem;
+        height: 2.3rem;
+        font-size: 0.97rem;
+        padding: 0.6rem 0.8rem;
     }
     th, td {
         font-size: 0.85rem;
