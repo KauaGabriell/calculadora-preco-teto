@@ -1,6 +1,6 @@
 /**Cores*/
 
-:root{
+:root {
     --main-color: #212B50;
     --secondary-color: #15853F;
     --input-radio-bg: #F1F5F9;
@@ -8,82 +8,108 @@
 
 /**Global Styles*/
 
-.main-container{
+.main-container {
     width: 100%;
     max-width: 1200px;
     padding: 1.5rem;
     box-sizing: border-box;
+    margin: 0 auto;
+    overflow-x: hidden;
 }
 
-.nav-container{
+.nav-container {
     width: 100%;
     max-width: 1200px;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-.icon{
+.icon {
     width: 3.5rem;
     height: 3rem;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
 /*Estilos do controle de navegação entre calculadoras*/
 
-input[name="tipo-calculo"]:checked + label {
-    background-color: white;
+input[name="tipo-calculo"]:checked+label {
+    background-color: #fff;
     color: #005A3A;
+    border: none !important;
+    /* Remove borda ao selecionar */
 }
 
 label[for^="radio-"] {
-    transition: background-color 0.2s ease-in-out;
+    flex: 1 1 0;
+    min-width: 120px;
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    background: var(--input-radio-bg);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0;
+    box-sizing: border-box;
+    border: none !important;
+    /* Remove qualquer borda */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 /*Form Styles*/
-.form{
+.form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.5rem 1.2rem;
+    /* gap vertical e horizontal */
     padding: 1.5rem;
     border-radius: 0.75rem;
     box-sizing: border-box;
+    align-items: start;
 }
 
-.form > div {
+.form>div {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.input{
+.input {
     width: 100%;
     height: 2.7rem;
     border: 1.5px solid #bdbdbd;
     border-radius: 0.5rem;
     padding: 0.7rem 1rem;
     margin-top: 0.3rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0;
     font-size: 1.05rem;
     box-sizing: border-box;
     background: #f8fafc;
     transition: border 0.2s;
 }
+
 .input:focus {
     border: 1.5px solid var(--main-color);
     outline: none;
     background: #fff;
 }
 
-.label{
+.label {
     font-weight: 600;
     color: var(--main-color);
     margin-bottom: 0.2rem;
     display: block;
+}
+
+/* Ajuste para garantir alinhamento perfeito das linhas */
+.form>div {
+    min-width: 0;
 }
 
 /* Botões responsivos e bonitos */
@@ -94,6 +120,7 @@ label[for^="radio-"] {
     margin-top: 0.5rem;
     padding: 0;
 }
+
 button[type="submit"],
 button[id^="cleanner-button"] {
     min-width: 120px;
@@ -116,27 +143,14 @@ button[id^="cleanner-button"] {
     width: 100%;
     margin-left: 0.5rem;
 }
+
 button[id^="cleanner-button"]:hover {
     background: var(--main-color);
     color: #fff;
 }
 
-/* Ajuste de espaçamento entre botões em mobile */
-@media (max-width: 600px) {
-    .form .flex.items-end.col-span-2.gap-4 {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.2rem;
-    }
-    button[type="submit"],
-    button[id^="cleanner-button"] {
-        width: 100%;
-        margin: 0;
-    }
-}
-
 /* Estilos da Tabela*/
-th{
+th {
     color: rgb(95, 95, 95);
     font-weight: 500;
     border-bottom: 1px solid rgba(154, 153, 153, 0.521);
@@ -145,7 +159,7 @@ th{
     font-size: 1rem;
 }
 
-tr{
+tr {
     margin-top: 2rem;
     padding: 20rem;
 }
@@ -167,13 +181,14 @@ td {
     border-radius: 0.5rem;
     background: #fff;
     transition: box-shadow 0.2s, border-color 0.2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     cursor: pointer;
     padding: 0.3rem;
 }
+
 .trash-icon:hover {
     border-color: red;
-    box-shadow: 0 2px 8px rgba(21,133,63,0.10);
+    box-shadow: 0 2px 8px rgba(21, 133, 63, 0.10);
     background: #f1f5f9;
 }
 
@@ -183,75 +198,179 @@ td {
     object-fit: contain;
 }
 
-/* Responsividade */
+/* Ajuste do ícone no título da calculadora */
+.calculator-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calculator-title img {
+    width: 1.7rem;
+    height: 1.7rem;
+    object-fit: contain;
+    margin-bottom: 0.1rem;
+}
+
+/* --- INÍCIO DA SEÇÃO DE RESPONSIVIDADE CORRIGIDA --- */
+
+/* Para telas menores que 900px (tablets e celulares na vertical) */
 @media (max-width: 900px) {
-    .main-container, .nav-container {
-        max-width: 100%;
-        padding: 1rem;
-    }
     .form {
+        /* 1. Muda o layout para uma única coluna */
         grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1rem;
+        
+        /* 2. Centraliza os containers (divs) dos inputs no grid */
+        justify-items: center; 
+        
+        gap: 1.2rem; /* Ajusta o espaçamento vertical */
+        padding: 1.5rem;
     }
+
     .form > div {
+        /* 3. Define uma largura máxima para os containers dos inputs, 
+           evitando que fiquem largos demais em tablets */
+        width: 100%;
+        max-width: 420px; 
+    }
+
+    .label {
+        /* Centraliza o texto do label */
+        text-align: center; 
+    }
+
+    .input {
+        /* O input já ocupa 100% da sua div pai, que agora está centralizada */
+        width: 100%; 
+    }
+
+    /* Ajusta os botões para ficarem em uma coluna */
+    .form .flex.items-end.col-span-2.gap-4 {
+        flex-direction: column;
+        max-width: 420px; /* Mantém a mesma largura dos inputs */
+        width: 100%;
+        margin: 0 auto; /* Centraliza o container dos botões */
+    }
+
+    button[type="submit"],
+    button[id^="cleanner-button"] {
         width: 100%;
         margin: 0;
-        padding: 0;
     }
 }
 
+/* Ajustes finos para telas muito pequenas (celulares) */
 @media (max-width: 600px) {
     .main-container, .nav-container {
         padding: 0.5rem;
     }
+    
     header .text-3xl {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
+
     .form {
-        grid-template-columns: 1fr;
-        gap: 0.7rem;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
     }
-    .form > div {
-        width: 100%;
-        margin: 0;
-        padding: 0;
+    
+    .label {
+        font-size: 0.95rem;
     }
+
     .input {
-        height: 2.3rem;
-        font-size: 0.97rem;
-        padding: 0.6rem 0.8rem;
-        margin-top: 0.2rem;
-        margin-bottom: 0.1rem;
+        height: 2.7rem; /* Mantém uma altura de toque confortável */
+        font-size: 1rem;
     }
-    th, td {
-        font-size: 0.85rem;
-        padding: 0.5rem 0.2rem;
+
+    button[type="submit"],
+    button[id^="cleanner-button"] {
+        padding: 0.8rem;
+        font-size: 1rem;
     }
+    
     .trash-icon {
         width: 2rem;
         height: 2rem;
-        padding: 0.15rem;
+    }
+
+    .calculator-title img {
+        display: none !important; /* Esconde ícone do título no mobile */
     }
 }
 
-/* Tabela responsiva: rolagem horizontal */
-@media (max-width: 900px) {
-    .shadow-md {
-        overflow-x: auto;
+/* --- FIM DA SEÇÃO DE RESPONSIVIDADE CORRIGIDA --- */
+
+
+/* Navegação responsiva dos radios */
+.nav-container>div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[name="tipo-calculo"] {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+}
+
+label[for^="radio-"] {
+    flex: 1 1 0;
+    min-width: 120px;
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    background: var(--input-radio-bg);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0;
+    box-sizing: border-box;
+    border: none !important;
+    /* Remove qualquer borda */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .nav-container>div {
+        flex-direction: column;
+        gap: 0.3rem;
     }
+
+    label[for^="radio-"] {
+        min-width: 0;
+        width: 100%;
+        font-size: 0.97rem;
+        padding: 0.5rem 0.1rem;
+    }
+}
+
+/* Tabela responsiva */
+.shadow-md {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+@media (max-width: 900px) {
     table {
         min-width: 700px;
     }
 }
 
 @media (max-width: 600px) {
-    .shadow-md {
-        overflow-x: auto;
-    }
     table {
-        min-width: 600px;
+        min-width: 500px;
+    }
+    th, td {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.2rem;
     }
 }
